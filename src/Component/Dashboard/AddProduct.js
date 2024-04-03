@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+// Dashboard
+
 const AddProduct = () => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
