@@ -2,7 +2,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../Firebase/firebase.init';
-
+// Social
 const Social = () => {
     const [loading, setLoading] = useState(false)
     const provider = new GoogleAuthProvider();
