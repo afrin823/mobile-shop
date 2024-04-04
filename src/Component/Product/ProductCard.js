@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// Product Cards
 const ProductCard = ({ product }) => {
     const { name, image, price, quantity, description, _id } = product
     return (
