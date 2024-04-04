@@ -4,6 +4,8 @@ import { useQuery } from 'react-query'
 import Loading from '../Loading/Loading'
 import ProductCard from './ProductCard'
 
+// Product json
+
 const Product = () => {
   const url = 'http://localhost:4000/product'
   const { isLoading, data } = useQuery(['products'], () =>
