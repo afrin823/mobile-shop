@@ -1,5 +1,5 @@
 import React from 'react';
-
+// Team
 const Team = () => {
     return (
         <div className='py-10'>
