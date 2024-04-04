@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom'
 import Loading from '../Loading/Loading'
 import Order from './Order'
 
+//Product Details
+
 const ProductDetails = () => {
     const location = useLocation()
     const [show, setShow] = useState(false)
