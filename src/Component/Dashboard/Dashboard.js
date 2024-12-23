@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import useUser from '../Hook/useUser'
-
+// Dashboard js
 const Dashboard = () => {
     const [currentUser, loading] = useUser()
     return (
