@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
 import auth from '../Firebase/firebase.init'
 import Loading from '../Loading/Loading'
-
+// Profile js 
 const Profile = () => {
     const [user, loading] = useAuthState(auth)
     const [edit, setEdit] = useState(false)
