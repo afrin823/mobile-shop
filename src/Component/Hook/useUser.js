@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../Firebase/firebase.init'
 
-// Hook
+// User js
 const useUser = () => {
   const [user] = useAuthState(auth)
   const [currentUser, setUser] = useState({})
