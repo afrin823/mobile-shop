@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import auth from '../Firebase/firebase.init'
 import Loading from '../Loading/Loading'
 import Payment from './Payment'
-
+// orders js
 const Orders = () => {
     const [user, loading] = useAuthState(auth)
     const url = `http://localhost:4000/order/${user.email}`
