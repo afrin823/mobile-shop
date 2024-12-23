@@ -29,7 +29,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Team from './Component/Team/Team';
 function App() {
-// Apps js
+// Apps JS
 
 
   const [currentUser] = useUser()
