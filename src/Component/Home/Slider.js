@@ -9,6 +9,7 @@ const Slider = () => {
         "/images/carosel/4.jpg",
         "/images/carosel/5.jpg",
     ]
+    // Slider Carosel
     return (
         <div className='max-w-[400px] max-h-[400px] lg:min-w-[550px] mt-10 lg:mt-0 h-full w-full rounded-lg '>
             <Swiper
