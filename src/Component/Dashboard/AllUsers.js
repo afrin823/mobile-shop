@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import Loading from '../Loading/Loading'
-
+// All Users
 const AllUsers = () => {
   const { isLoading, data, refetch } = useQuery(['All-Users'], () =>
     fetch(`http://localhost:4000/users`,{
