@@ -1,4 +1,4 @@
-// Loading
+// Loading js
 import React from 'react'
 import loader from '../Images/loader.gif'
 const Loading = () => {
