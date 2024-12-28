@@ -20,7 +20,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                fetch(`http://localhost:4000/users/${user.email}`, {
+                fetch(`https://mobile-collections-backend.vercel.app/users/${user.email}`, {
                     method: "put",
                     headers: {
                         "content-type": "application/json"

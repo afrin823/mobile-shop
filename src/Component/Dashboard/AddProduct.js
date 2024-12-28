@@ -29,7 +29,7 @@ const AddProduct = () => {
           const description = data.description
           const newProduct = { name, price, quantity, image, description }
           console.log(newProduct)
-          fetch('http://localhost:4000/product', {
+          fetch('https://mobile-collections-backend.vercel.app/product', {
             method: "Post",
             headers: {
               'content-type': 'application/json',

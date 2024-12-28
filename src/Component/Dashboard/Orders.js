@@ -9,7 +9,7 @@ import Payment from './Payment'
 // orders js
 const Orders = () => {
     const [user, loading] = useAuthState(auth)
-    const url = `http://localhost:4000/order/${user.email}`
+    const url = `https://mobile-collections-backend.vercel.app/order/${user.email}`
     const [show, setShow] = useState(false)
     const [showDel, setshowDel] = useState(false)
     const [order, setOrder] = useState({})
@@ -35,7 +35,7 @@ const Orders = () => {
 
     function goForPay() {
         setShow(true)
-        fetch("http://localhost:4000/payment/create-payment-intent", {
+        fetch("https://mobile-collections-backend.vercel.app/payment/create-payment-intent", {
             method: "post",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price: order.totalPrice }),
@@ -144,7 +144,7 @@ const PaymentModal = ({ show, setShow, order, clientSecret, refetch }) => {
 
 const ConfirmModal = ({ id, refetch, setshowDel, showDel }) => {
     function deletProduct() {
-        axios.delete(`http://localhost:4000/order/${id}`, {
+        axios.delete(`https://mobile-collections-backend.vercel.app/order/${id}`, {
             headers: {
                 auth: localStorage.getItem('accessToken')
             }

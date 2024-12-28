@@ -5,21 +5,21 @@ import { Link, useNavigate } from 'react-router-dom'
 import Contact from '../Contact/Contact'
 import Loading from '../Loading/Loading'
 import ProductCard from '../Product/ProductCard'
-import ReviewCard from '../Review/ReviewCard'
+// import ReviewCard from '../Review/ReviewCard'
 import Slider from './Slider'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Firebase/firebase.init';
 const Home = () => {
     const [user, loading] = useAuthState(auth)
     const navigate = useNavigate()
-    const url = 'http://localhost:4000/product'
+    const url = 'https://mobile-collections-backend.vercel.app/product'
     const { isLoading, data } = useQuery(['products'], () =>
         fetch(url).then(res =>
             res.json()
         )
     )
     const { isLoading: loading2, data: reviews } = useQuery(['reviews'], () =>
-        fetch('http://localhost:4000/review').then(res =>
+        fetch('https://mobile-collections-backend.vercel.app/review').then(res =>
             res.json()
         )
     )
@@ -29,26 +29,12 @@ const Home = () => {
     }
     return (
         <div className=''>
-            <div className="hero w-full min-h-auto py-20 bg-base-100">
-                <div className="hero-content w-full justify-between flex-col lg:flex-row md:flex-col">
-
-                    <div className='ml-5'>
-                        <h1 className='text-xl mb-4 font-bold text-neutral'>Wellcome To</h1>
-                        <h1 className="text-5xl leading-tight font-bold text-left">
-                            Hazrat Ali <br />
-                            Mobile Mobile Shop</h1>
-                        <p className="py-6 text-left">
-                            We Provide All Type Of Mobile Parts And Accessories</p>
-                        <div className='flex justify-start'>
-                            <button className='btn' onClick={() => {
-                                user ? navigate('/product') : navigate('/login')
-                            }}>Get Started</button>
-
-                        </div>
-                    </div>
+            <div className="">
+                <div className="pt-16">
                     <Slider />
                 </div>
             </div>
+           
 
             <div className='container mx-auto mt-14 '>
                 <h1 className='text-center text-4xl my-5 font-bold'>Our  Products</h1>
@@ -57,7 +43,7 @@ const Home = () => {
                         data?.slice(0, 4).map(product => <ProductCard key={product._id} product={product} />)
                     }
                 </div>
-                <div className='flex justify-center mt-10'><Link to='/product' className='btn btn-primary'>See All Product</Link></div>
+                <div className='flex justify-center mt-10'><Link to='/allproduct' className='btn btn-primary'>See All Product</Link></div>
             </div>
 
             <section className='container mx-auto mt-14'>
@@ -84,33 +70,19 @@ const Home = () => {
                         <div className="stat-desc">↘︎ 50 (10%)</div>
                     </div>
                 </div>
-                <div className='shadow-2xl py-5 p-5 lg:p-10 mt-6 w-full lg:flex items-center lg:justify-between'>
-                    <div>
-                        <h1 className='text-primary text-4xl mb-3 font-bold'>Have any question about us or get a <br />
+                <div className='shadow-2xl py-5 p-5 lg:p-10 mt-6 w-full lg:flex items-center text-center lg:justify-center'>
+                    <div className=''>
+                        <h1 className='text-primary text-4xl mb-3 font-bold'>Have any question about us or get a 
                             product request</h1>
                         <h2 className='text-2xl pt-3'>Don't hesitate to contact us</h2>
-                    </div>
-                    <div className='mt-10 md:mt-0 lg:mt-0'>
-                        <Link to='/dashboard/review' className='btn lg:px-5 btn-primary mr-5'>Write a Review</Link>
+                        <div className='mt-10 md:mt-0 lg:mt-8'>
                         <Link to='/contact' className='btn lg:px-5 btn-neutral'>contact ue</Link>
                     </div>
+                    </div>
+                
                 </div>
             </section>
-            {/* Reviews  */}
-            <div className='container mx-auto'>
-                <h1 className='text-5xl text-center mt-16'>Testimonials</h1>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-14 gap-5 mt-14 gap-5">
-                    {
-                        reviews?.slice(0, 4).map(review => <ReviewCard key={review._id} review={review} />)
-                    }
-
-                </div>
-                <div className={`flex justify-center`}>
-                    <Link to='/review' className='btn mt-10'>Show All</Link>
-                </div>
-            </div>
-
-
+           
             <Contact />
         </div>
     )

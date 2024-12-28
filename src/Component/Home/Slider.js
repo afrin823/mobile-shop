@@ -1,17 +1,22 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../Firebase/firebase.init';
+import { useNavigate } from 'react-router-dom';
 const Slider = () => {
+    const [user] = useAuthState(auth);
+     const navigate = useNavigate()
     const sliders = [
         "/images/carosel/1.jpg",
-        "/images/carosel/2.jpg",
+        "/images/carosel/2.jpeg",
         "/images/carosel/3.jpg",
         "/images/carosel/4.jpg",
         "/images/carosel/5.jpg",
     ]
     // Slider Carosel
     return (
-        <div className='max-w-[400px] max-h-[400px] lg:min-w-[550px] mt-10 lg:mt-0 h-full w-full rounded-lg '>
+        <div className='mb-12 mt-0 w-full h-[500px]'>
             <Swiper
                 loop={true}
                 autoplay={{
@@ -21,18 +26,33 @@ const Slider = () => {
                 className="h-full w-full rounded overflow-hidden">
                 {
                     sliders.map((slider, index) => {
-                        return <SwiperSlide key={index}>
-                            {/* <div className='lg:min-w-[550px] w-fu min-h-[450px] bg-cover bg-center bg-no-repeat rounded'
+                        return <SwiperSlide>
+                            <div
+                                className="hero min-h-screen"
                                 style={{
                                     backgroundImage: `url(${slider})`,
                                 }}
                             >
-                            </div> */}
-                            <img src={slider} alt="" className='w-full'/>
+                                <div className="hero-overlay bg-opacity-40"></div>
+                                <div className="hero-content text-neutral-content text-center">
+                                    <div data-aos="flip-up" className="max-w-md">
+                                        <h1 className="mb-5 text-5xl font-medium">Hazrat Ali <br />  Mobile Mobile Shop</h1>
+                                        <p className="mb-5">
+                                            We Provide All Type Of Mobile Parts And Accessories
+                                        </p>                                       
+                                            <button className='btn' onClick={() => {
+                                                user ? navigate('/product') : navigate('/login')
+                                            }}>Get Started</button>
+
+                                    </div>
+                                </div>
+                            </div>
                         </SwiperSlide>
                     })
                 }
             </Swiper>
+
+
         </div>
     );
 };

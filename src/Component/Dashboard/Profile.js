@@ -10,7 +10,7 @@ const Profile = () => {
     const [edit, setEdit] = useState(false)
     const { register, handleSubmit, } = useForm();
     const { isLoading, data, refetch } = useQuery(['Profiles'], () =>
-        fetch(`http://localhost:4000/profile/${user.email}`, {
+        fetch(`https://mobile-collections-backend.vercel.app/profile/${user.email}`, {
             method: "get",
             headers: {
                 auth: localStorage.getItem('accessToken')
@@ -25,7 +25,7 @@ const Profile = () => {
         const others = data
         const profileData = { name, email, others }
         console.log(profileData);
-        fetch(`http://localhost:4000/profile/${email}`, {
+        fetch(`https://mobile-collections-backend.vercel.app/profile/${email}`, {
             method: "put",
             headers: {
                 'content-type': 'application/json',

@@ -12,7 +12,7 @@ const Reviews = () => {
     const [user, loading] = useAuthState(auth)
     const navigate = useNavigate()
     const { isLoading, data, refetch } = useQuery(['reviews'], () =>
-        fetch('http://localhost:4000/review')
+        fetch('https://mobile-collections-backend.vercel.app/review')
             .then(res =>
                 res.json()
             )
@@ -36,7 +36,7 @@ const Reviews = () => {
     }
     return (
         <div className='container mx-auto'>
-            <h1 className='text-5xl text-center mt-16'>Testimonials</h1>
+            <h1 className='text-5xl text-center mt-16'>Reviews</h1>
             <div className={`flex justify-center`}>
                 <button onClick={addReview} className='btn mt-10'>Write a Review</button>
             </div>

@@ -9,7 +9,7 @@ const ManageProducts = () => {
   const [showDel, setshowDel] = useState(false)
   const [product1, setProduct] = useState({})
   const [id , setId] = useState('')
-  const url = 'http://localhost:4000/product'
+  const url = 'https://mobile-collections-backend.vercel.app/product'
   const { isLoading, data, refetch } = useQuery(['Product'], () =>
     fetch(url, {
       method: "get",
@@ -86,7 +86,7 @@ export default ManageProducts
 
 const ConfirmModal = ({id , refetch , setshowDel , showDel}) => {
   function deletProduct() {
-    axios.delete(`http://localhost:4000/product/${id}`, {
+    axios.delete(`https://mobile-collections-backend.vercel.app/product/${id}`, {
       headers: {
         auth: localStorage.getItem('accessToken')
       }
@@ -119,7 +119,7 @@ const Modal = ({ show, setShow, product, refetch }) => {
     const quantity = parseInt(e.target.quantity.value) + parseInt(product.quantity)
     const price = parseInt(e.target.price.value)
     const updateValue = { quantity, price }
-    fetch(`http://localhost:4000/product/${product._id}`, {
+    fetch(`https://mobile-collections-backend.vercel.app/product/${product._id}`, {
       method: "Put",
       headers: {
         'content-type': 'application/json',

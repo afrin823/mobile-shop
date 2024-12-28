@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading'
 // All Users
 const AllUsers = () => {
   const { isLoading, data, refetch } = useQuery(['All-Users'], () =>
-    fetch(`http://localhost:4000/users`,{
+    fetch(`https://mobile-collections-backend.vercel.app/users`,{
       method:"get",
       headers: {
         auth : localStorage.getItem('accessToken')
@@ -43,7 +43,7 @@ export default AllUsers
 
 const Users = ({ data, refetch }) => {
   const makeAdmin = (email) => {
-    fetch(`http://localhost:4000/users/addAdmin/${email}`, {
+    fetch(`https://mobile-collections-backend.vercel.app/users/addAdmin/${email}`, {
       method: "put",
       headers: {
         auth : localStorage.getItem('accessToken')
@@ -96,7 +96,7 @@ const Users = ({ data, refetch }) => {
 
 const Admins = ({ data, refetch }) => {
   const removeAdmin = (email) => {
-    fetch(`http://localhost:4000/users/removeAdmin/${email}`, {
+    fetch(`https://mobile-collections-backend.vercel.app/users/removeAdmin/${email}`, {
       method: "put",
       headers: {
         auth : localStorage.getItem('accessToken')

@@ -58,7 +58,7 @@ const CheckoutForm = ({ order, clientSecret , setShow , refetch }) => {
         email: order.email,
         date: date
       }
-      fetch(`http://localhost:4000/order/${order._id}`, {
+      fetch(`https://mobile-collections-backend.vercel.app/order/${order._id}`, {
         method: "put",
         headers: {
           'content-type': 'application/json',

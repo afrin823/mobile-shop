@@ -15,7 +15,7 @@ const AddReview = ({  show }) => {
     const addreview = () => {
         if (user && desc && rating) {
             setSubmitting(true)
-            fetch('http://localhost:4000/review', {
+            fetch('https://mobile-collections-backend.vercel.app/review', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
